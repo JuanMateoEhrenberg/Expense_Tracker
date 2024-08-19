@@ -16,8 +16,10 @@ class ExpenseTracker:
         if 0 <= index < len(self.expenses):
             del self.expenses[index]
             print("Expense removed successfully")
+            
         else:
             print("Index not found in expenses")
+            print(f"Available indexes are from 0 to {len(self.expenses) -1}. ")
 
     def viewExpenses(self):
         if len(self.expenses) == 0:
@@ -25,7 +27,7 @@ class ExpenseTracker:
         else:
             print("Expenses list:")
             for i, expense in enumerate(self.expenses, start=1):
-                print(f"{i}, Date: {expense.date}, Description:  {expense.description}, Amount: {expense.amount:.2f}}")   
+                print(f"{i}, Date: {expense.date}, Description:  {expense.description}, Amount: {expense.amount:.2f}")   
                 
     def totalExpenses(self):
         total = sum(expense.amount for expense in self.expenses)
@@ -48,7 +50,7 @@ def main():
         if choice == "1" :
             print("You selected '1. Add Expense', lets get to it!")
             date = input("First inform the date of the Expense (DD/MM/YYYY) -->> ")
-            description = input("Now inform description of the Expense (DD/MM/YYYY) -->> ")
+            description = input("Now inform description of the Expense -->> ")
             amount = input("Lastly, inform the amount ($) of the expense -->>")
             expense = Expense(date, description, amount)      
             tracker.addExpense(expense)
@@ -56,3 +58,8 @@ def main():
         
         if choice == "2" :  
             print("You selected '2. Remove Expense', lets get to it!")
+            index = input("Please inform which expense you wish to remove with the index -->> ")
+            indexInt = int(index)  # Convert index to integer since it's a string
+            tracker.removeExpense(indexInt)
+
+main()
