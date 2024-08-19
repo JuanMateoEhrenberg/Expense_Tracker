@@ -26,9 +26,10 @@ class ExpenseTracker:
         if len(self.expenses) == 0:
             print("------------------------- There are no expenses! -------------------------")
         else:
-            print("------------------------- Expenses list:")
+            print("------------------------- Expenses list -------------------------")
             for i, expense in enumerate(self.expenses, start=1):
-                print(f"{i} --> Date: {expense.date}, Expense Description:  {expense.description}, Amount: {expense.amount}")   
+                print(f"{i} --> Date: {expense.date}, Expense Description:  {expense.description}, Amount: {expense.amount}")
+            print("-----------------------------------------------------------------")   
                 
     def totalExpenses(self):
         total = sum(int(expense.amount) for expense in self.expenses)
@@ -48,29 +49,29 @@ def main():
         print("5. Modify Expense")
         print("6. Exit")
         
-        choice = input("Select your choice (1-6): -->> ")
+        choice = input("# Select your choice (1-6): -->> ")
         
         if choice == "1":
             print("-------------------------------------------------You selected '1. Add Expense', lets get to it!")
-            date = input("First inform the date of the Expense (YYYY-MM-DD) -->> ")
-            description = input("Now inform description of the Expense -->> ")
-            amount = input("Lastly, inform the amount ($) of the expense -->>")
+            date = input("# First inform the date of the Expense (YYYY-MM-DD) -->> ")
+            description = input("# Now inform description of the Expense -->> ")
+            amount = input("# Last but not least, inform the amount ($) of the expense -->>")
             expense = Expense(date, description, amount)      
             tracker.addExpense(expense)
             print("Expense added succesfully!")
         
         if choice == "2":  
             print("-------------------------------------------------You selected '2. Remove Expense', lets get to it!")
-            index = input("Please inform which expense you wish to remove with the index -->> ")
+            index = input("# Please inform which expense you wish to remove with the index -->> ")
             indexInt = int(index)  # Convert index to integer since it's a string
             tracker.removeExpense(indexInt)
             
         if choice == "3":
-            print("-------------------------------------------------You selected '3. View Expenses', lets get to it!")
+            #print("-------------------------------------------------You selected '3. View Expenses', lets get to it!")
             tracker.viewExpenses()
             
         if choice == "4":
-            print("-------------------------------------------------You selected '4. Total Expenses', lets get to it!")
+            #print("-------------------------------------------------You selected '4. Total Expenses', lets get to it!")
             tracker.totalExpenses()
                 
         if choice == "5":
