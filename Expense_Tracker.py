@@ -40,17 +40,18 @@ def main():
     tracker = ExpenseTracker()
     
     while True:
-        print("\nExpense Tracker Menu:")
+        print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\nExpense Tracker Menu:")
         print("1. Add Expense")
         print("2. Remove Expense")
         print("3. View Expenses")
         print("4. Total Expenses")
-        print("5. Exit")
+        print("5. Modify Expense")
+        print("6. Exit")
         
-        choice = input("Select your choice (1-5): -->> ")
+        choice = input("Select your choice (1-6): -->> ")
         
         if choice == "1":
-            print("You selected '1. Add Expense', lets get to it!")
+            print("-------------------------------------------------You selected '1. Add Expense', lets get to it!")
             date = input("First inform the date of the Expense (YYYY-MM-DD) -->> ")
             description = input("Now inform description of the Expense -->> ")
             amount = input("Lastly, inform the amount ($) of the expense -->>")
@@ -59,21 +60,24 @@ def main():
             print("Expense added succesfully!")
         
         if choice == "2":  
-            print("You selected '2. Remove Expense', lets get to it!")
+            print("-------------------------------------------------You selected '2. Remove Expense', lets get to it!")
             index = input("Please inform which expense you wish to remove with the index -->> ")
             indexInt = int(index)  # Convert index to integer since it's a string
             tracker.removeExpense(indexInt)
             
         if choice == "3":
-            print("You selected '3. View Expenses', lets get to it!")
+            print("-------------------------------------------------You selected '3. View Expenses', lets get to it!")
             tracker.viewExpenses()
             
         if choice == "4":
-            print("You selected '4. Total Expenses', lets get to it!")
+            print("-------------------------------------------------You selected '4. Total Expenses', lets get to it!")
             tracker.totalExpenses()
-            
+                
         if choice == "5":
-            print("Thanks for trying this tracker! hope to see you soon! :) Bye")
+            print("-------------------------------------------------Still in development!! pick another option, or delete the desired one and add it correctly! :)")    
+        
+        if choice == "6":
+            print("-------------------------------------------------Thanks for trying this tracker! hope to see you soon! :) Bye")
             break
 
         """ Error managing for the case of writing anything outside of possible options!!
